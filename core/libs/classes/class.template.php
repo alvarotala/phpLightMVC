@@ -25,9 +25,17 @@
  *		$output = $tmpl->render();
  **/
 
-class Template{
+class Template {
     var $template;
     var $variables;
+
+	static public function load($path) {
+		require_once APP_PATH . "/views/templates/" . $path;
+	}
+	
+	static public function mail($path) {
+		return(new self(APP_PATH . "/views/mails/" . $path));
+	}
 
 	 public function Template($template){      
         $this->template = @file_get_contents($template);

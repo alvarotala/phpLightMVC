@@ -31,7 +31,7 @@ class ActionView {
 		return $this->controller->$var;
 	}
 	
-	private function renderView() {
+	private function renderView() {		
 		$path = APP_PATH . '/views/' . $this->map['controller'] . '/' . $this->map['action'] . '.php';
 		if(!file_exists($path)) {
 			trigger_error("Route Error: Can't find the view `{$path}`.", E_USER_ERROR);

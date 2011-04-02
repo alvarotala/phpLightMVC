@@ -70,7 +70,7 @@ class Sendmail {
 
 		$mail->Body = $options['body'];
 		if (!$mail->Send()) {
-			echo "No se pudo enviar el mail a: ".$options['to']."\n\n Error: ".$mail->ErrorInfo;
+			echo "<pre>[ERROR] Can't send email: ".$options['to']."\n\n Error: ".$mail->ErrorInfo."</pre>";
 			return false;
 		} else {
 			return true;

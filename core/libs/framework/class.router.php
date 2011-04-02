@@ -42,7 +42,8 @@ class Router {
 	}
 	
 	public function apply($full_url) {
-		$url = $this->_getParsedUrl($full_url);		
+		$url = $this->_getParsedUrl($full_url);
+				
 		$mapped_path = $this->_toParams($url['path']);
 		
 		foreach($mapped_path as  $k => $v) {
@@ -294,8 +295,7 @@ class Router {
     }
 	
 	private function _getParsedUrl($url) {
-		$url = parse_url($url);
-		
+		$url = parse_url($url);		
 		if(empty($url['path'])) $url['path'] = '/';
 				
 		if(!empty($url['query'])) {

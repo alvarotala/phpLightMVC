@@ -5,21 +5,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-	<title><?=SITE_NAME?></title>
+	<title>PhpLightMVC - Mail example</title>
 	
 </head>
 
 <body>
-	
-	<?Template::load('example.php');?>
-	
-	<h1>Example</h1>
-	
-	<p><?=$this->message;?></p>
-	
-	<p>Other get var: <?=$this->params['get']['other']?></p>
-	
+
+	<h1>Hello {$name}!</h1>
+
 </body>
 </html>
-
-

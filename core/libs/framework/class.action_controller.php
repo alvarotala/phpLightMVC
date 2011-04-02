@@ -8,9 +8,13 @@ class ActionController {
 	
 	public $params;
 	private $RenderView = true;
+	public $redirection = false;
 	
-	public function __construct($params) { 
-		$this->params = $params;
+	public function __construct($options) { 
+		$this->params 					= $options['params'];
+		$this->params['controller'] 	= $options['controller'];
+		$this->params['action'] 		= $options['action'];
+		
 		$this->callbacks();
 	}
 	
@@ -20,6 +24,11 @@ class ActionController {
 		} else {
 			$this->RenderView = array($val, $header);
 		}
+	}
+	
+	public function redirect($url) {
+		$this->redirection = true;
+		header("Location: $url");
 	}
 	
 	public function getRender() {

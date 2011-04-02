@@ -23,15 +23,19 @@ class Dispatcher {
 	}
 	
 	private function get_url() {
+		if(!isset($_GET['url'])) $_GET['url'] = "";
+		
 		$url = $_GET['url'];
 		$vars = array();
 		
 		foreach($_GET as $k=>$v) {
 			if($k != 'url') {
+				$v = urlencode($v);
+				# $v = addslashes($v);
 				array_push($vars, $k . '=' . $v);
 			}
 		}
-		
+				
 		if(!empty($vars)) {
 			if(strpos($url, '?') > 0) {
 				$url .= '&' . implode('&', $vars);
@@ -39,7 +43,7 @@ class Dispatcher {
 				$url .= '?' . implode('&', $vars);
 			}
 		}
-
+		
 		return urldecode($url);
 	}
 		
@@ -48,17 +52,19 @@ class Dispatcher {
 		
 		if (!class_exists($controller)) {
 			trigger_error("Route Error: The class `{$controller}` does't appear to be valid.", E_USER_ERROR);
+			die();
 		}
 		
-		$klass = new $controller ($this->map['params']);
+		$klass = new $controller ($this->map);
 		
 		if(!method_exists($klass, $this->map['action'])) {
 			trigger_error("Route Error: The method `{$this->map['action']}` does't appear to be valid.", E_USER_ERROR);
+			die();
 		}
 		
 		call_user_func_array(array($klass, $this->map['action']), array());
 		
-		new ActionView($klass, $this->map);
+		if($klass->redirection !== true) new ActionView($klass, $this->map);
 		
 	}
 	

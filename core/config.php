@@ -8,15 +8,16 @@ date_default_timezone_set('UTC');
 
 # Datos del Sitio
 
-define('SITE_NAME'			, 'Nombre de Sitio');
-define('WWW_PATH'			, '');		# raiz de la carpeta publica
+define('DOMAIN'				, 'localhost');
+define('SITE_NAME'			, 'PhpLightMVC example');
+define('WWW_PATH'			, 'http://' . DOMAIN . '/projects/phpLightMVC.com/src/phpLightMVC/public');		# public root path
 
 
 # DB Mysql
-define('MY_DB_USER'			, 'root');	 					# Usuario
+define('MY_DB_USER'			, 'root');	 					# User
 define('MY_DB_PASS'			, ''); 							# Password
 define('MY_DB_SERVER'		, '127.0.0.1'); 				# Host
-define('MY_DB_NAME'			, 'test');						# DB
+define('MY_DB_NAME'			, 'test');						# Db name
 
 # Email
 define('SMPP_HOST'			, 'smtp.host.com');
@@ -30,6 +31,6 @@ define('SMPP_NAME'			, 'From Name');
 define('SECURITY_VAULT'		, '__ajnadj89JHLKJN*&&@*)LN)(PJILKNkj&&*&*%%KKK??+==_UHJKL@u98230jnsd');
 
 # Session
-define('_SESSION_NAME'		, md5(SECURITY_VAULT . '___sitename_'));
+define('_SESSION_NAME'		, (md5(SECURITY_VAULT). '___session_name_'));
 
 ?>

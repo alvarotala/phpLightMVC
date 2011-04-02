@@ -7,9 +7,19 @@
 
 	<title><?=SITE_NAME?></title>
 	
+	<style type="text/css" media="screen">
+		.flash { padding: 10px; } 
+		.notice { background: #8FFF9F; color: green; }
+		.error { background: #FFB0C6; color: red; }
+	</style>
+	
 </head>
 
 <body>
+	
+	<?Template::load('example.php');?>
+	
+	<?Flash::show()?>
 	
 	<h1>Example</h1>
 	
@@ -23,10 +33,12 @@
 	<h3>Links Examples: (TODO: Improve this with helpers)</h3>
 	<dl>
 		<dt>With MOD_REWRITE</dt>
+		<dd><a href="<?=WWW_PATH?>/example/messages">/example/messages</a></dd>
+		
 		<dd><a href="<?=WWW_PATH?>/example/index">/example/index</a></dd>
 		<dd><a href="<?=WWW_PATH?>/example/show">/example/show</a></dd>
-		<dd><a href="<?=WWW_PATH?>/example/show?id=1">/example/show?id=1</a></dd>
 		<dd><a href="<?=WWW_PATH?>/example/show/1">/example/show/1</a></dd>
+		<dd><a href="<?=WWW_PATH?>/example/show/1?other=2">/example/show/1?other=2</a></dd>
 		<dd><a href="<?=WWW_PATH?>/mostrar/1">/mostrar/1</a></dd>
 		
 		<dd><a href="<?=WWW_PATH?>/example/show/1&other=10">/example/show/1&other=10</a></dd>
@@ -37,10 +49,11 @@
 	
 	<dl>
 		<dt>Without MOD_REWRITE</dt>
+		<dd><a href="<?=WWW_PATH?>?url=/example/messages">/example/messages</a></dd>
 		<dd><a href="<?=WWW_PATH?>?url=/example/index">/example/index</a></dd>
 		<dd><a href="<?=WWW_PATH?>?url=/example/show">/example/show</a></dd>
-		<dd><a href="<?=WWW_PATH?>?url=/example/show&id=1">/example/show?id=1</a></dd>
 		<dd><a href="<?=WWW_PATH?>?url=/example/show/1">/example/show/1</a></dd>
+		<dd><a href="<?=WWW_PATH?>?url=/example/show/1&other=2">/example/show/1?other=2</a></dd>
 		<dd><a href="<?=WWW_PATH?>?url=/mostrar/1">/mostrar/1</a></dd>
 		
 		<dd><a href="<?=WWW_PATH?>?url=/example/show/1&other=10">/example/show/1&other=10</a></dd>

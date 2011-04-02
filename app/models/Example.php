@@ -9,6 +9,21 @@ class Example extends ActiveRecord\Model {
 	
 	static $table_name = 'example_table'; # name of table
 	
+	
+	# Example of sendmail with html body
+	public function send_mail() {
+		$tmpl = Template::mail('example.php');
+		$tmpl->replace(array(
+			'name' => 'John Smith'
+		));
+	
+		Sendmail::send(array(
+			'to' 		=> 'john@example.com',
+			'subject' 	=> 'Hello new user!',
+			'body'		=> 	$tmpl->render()
+		));
+	}
+	
 }
 
 ?>

@@ -4,7 +4,20 @@ class ExampleController extends ApplicationController {
 
 	# This is a callback.. It's run in every request before the actual action it's called.
 	protected function before_filter() {
+		parent::before_filter();
+		
 		$this->check_something(); # controlo que este logueado para ingresar.
+
+		switch($this->params['action']) {
+			case 'index':
+			case 'show':
+				// do something
+			break;
+			
+			case 'test':
+				// do other stuff..
+			break;
+		}
 	}
 	
 	# /example/index
@@ -13,7 +26,7 @@ class ExampleController extends ApplicationController {
 	}
 	
 	# /example/show
-	function show() {
+	function show() {	
 		$this->message = "The user ID is: {$this->params['get']['id']}";
 	}
 	
@@ -24,8 +37,11 @@ class ExampleController extends ApplicationController {
 	}
 	
 	# /example/logout
-	function logout() {
-		HTTP::redirect(WWW.PATH . '/');
+	function messages() {
+		Flash::notice("Success message.");
+		Flash::error("Error message.");
+		
+		$this->redirect(WWW_PATH . '/');
 	}
 	
 	# /example/test (with mod_rewrite)
@@ -52,5 +68,4 @@ class ExampleController extends ApplicationController {
 	}
 	
 }
-
 ?>

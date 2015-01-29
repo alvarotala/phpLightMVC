@@ -1362,6 +1362,10 @@ class Model
 	{
 		return static::table()->find_by_sql($sql, $values, true);
 	}
+	
+	public static function execute($sql) {
+		static::table()->execute($sql);
+	}
 
 	/**
 	 * Determines if the specified array is a valid ActiveRecord options array.

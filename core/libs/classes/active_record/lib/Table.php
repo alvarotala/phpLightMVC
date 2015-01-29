@@ -323,6 +323,12 @@ class Table
 			}
 		}
 	}
+	
+	# Alvaro mod..
+	public function execute($sql) {
+		$this->last_sql = $sql;
+		$this->conn->query($sql);
+	}
 
 	private function set_table_name()
 	{

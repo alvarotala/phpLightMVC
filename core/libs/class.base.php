@@ -35,7 +35,7 @@ class Base {
 	
 	public static function loadActiveRecord() {
 		$connections = array(
-			'development' => 'mysql://'.MY_DB_USER.':'.MY_DB_PASS.'@'.MY_DB_SERVER.'/'.MY_DB_NAME
+			'development' => 'mysql://'.MY_DB_USER.':'.MY_DB_PASS.'@'.MY_DB_SERVER.'/'.MY_DB_NAME.';charset=utf8'
 		);
 
 		// initialize ActiveRecord

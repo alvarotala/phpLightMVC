@@ -761,7 +761,7 @@ class Errors implements IteratorAggregate
 					if (is_null($msg))
 						continue;
 
-					$full_messages[] = Utils::human_attribute($attribute) . ' ' . $msg;
+					$full_messages[] = array(Utils::human_attribute($attribute), $msg);
 				}
 			}
 		}

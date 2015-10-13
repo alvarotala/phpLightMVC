@@ -14,6 +14,7 @@ require_once(CORE_PATH . '/libs/classes/class.string.php');
 require_once(CORE_PATH . '/libs/classes/class.template.php');
 require_once(CORE_PATH . '/libs/classes/class.flash.php');
 require_once(CORE_PATH . '/libs/classes/class.crypto.php');
+require_once(CORE_PATH . '/libs/classes/class.upload.php');
 require_once(CORE_PATH . '/libs/classes/active_record/ActiveRecord.php');
 
 require_once CORE_PATH . '/libs/framework/class.router.php';

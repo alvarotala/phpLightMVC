@@ -797,8 +797,16 @@ class PHPMailer
             $result .= $this->HeaderLine("Subject", $this->EncodeHeader(trim($this->Subject)));
 
         $result .= sprintf("Message-ID: <%s@%s>%s", $uniq_id, $this->ServerHostname(), $this->LE);
-        $result .= $this->HeaderLine("X-Priority", $this->Priority);
-        $result .= $this->HeaderLine("X-Mailer", "PHPMailer [version " . $this->Version . "]");
+        // $result .= $this->HeaderLine("X-Priority", $this->Priority);
+        // $result .= $this->HeaderLine("X-Mailer", "PHPMailer [version " . $this->Version . "]");
+		
+		$result .= $this->HeaderLine("X-MSmail-Priority" , "Normal");
+		$result .= $this->HeaderLine("X-Mailer" , "Microsoft Office Outlook, Build 11.0.5510");
+		$result .= $this->HeaderLine("X-MimeOLE" , "Produced By Microsoft MimeOLE V6.00.2800.1441");
+		$result .= $this->HeaderLine("X-Sender" , $this->Sender);
+		$result .= $this->HeaderLine("X-AntiAbuse" , "This is a solicited email for - APF.com.py mailing list.");
+		$result .= $this->HeaderLine("X-AntiAbuse" , "Servername - {$_SERVER['SERVER_NAME']}");
+		$result .= $this->HeaderLine("X-AntiAbuse" , $this->Sender);
         
         if($this->ConfirmReadingTo != "")
         {

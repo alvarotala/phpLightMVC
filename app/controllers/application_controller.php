@@ -14,7 +14,7 @@ class ApplicationController extends ActionController {
 	
 	protected function logged() {
 		if(true) {
-			HTTP::redirect(WWW_PATH . '/');
+			$this->redirect(WWW_PATH . '/');
 		}
 	}
 

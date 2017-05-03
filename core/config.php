@@ -20,11 +20,8 @@ define('MY_DB_SERVER'		, '127.0.0.1'); 				# Host
 define('MY_DB_NAME'			, 'test');						# Db name
 
 # Email
-define('SMPP_HOST'			, 'smtp.host.com');
-define('SMPP_USER'			, 'username');
-define('SMPP_PASS'			, 'password');
-define('SMPP_FROM'			, 'example@host.com');
-define('SMPP_NAME'			, 'From Name');
+define('SMTP_HOST'			, 'smtp.host.com');
+define('SMTP_PORT'			, 25);
 
 
 # Security Vault

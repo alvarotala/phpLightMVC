@@ -38,8 +38,8 @@ class ExampleController extends ApplicationController {
 	
 	# /example/logout
 	function messages() {
-		Flash::notice("Success message.");
-		Flash::error("Error message.");
+		$this->notice("Success message.");
+		$this->error("Error message.");
 		
 		$this->redirect(WWW_PATH . '/');
 	}
@@ -65,6 +65,18 @@ class ExampleController extends ApplicationController {
 		# optionaly, you can set the header
 		# $this->render("Hello!", "text/plain");
 		# $this->render(file_get_contents($an_image), "image/jpg");
+	}
+	
+	# /example/ajax_example (with mod_rewrite)
+	# /?url=/example/ajax_example (without mod_rewrite)
+	function ajax_example() {
+		# do somethig..
+		
+		# when ajax is passed, this will be the output, ignored a view file if exists.
+		$this->ajax(100, array(
+			'name' 	=> 'John',
+			'age' 	=> 35
+		));
 	}
 	
 }

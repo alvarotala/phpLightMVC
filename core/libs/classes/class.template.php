@@ -41,12 +41,7 @@ class Template {
         $this->template = @file_get_contents($template);
         $this->variables = array();
     }
-
-    function __construct($template){      
-        $this->template = @file_get_contents($template);
-        $this->variables = array();
-    }
-
+	
     public function replace($array){
         if ( !is_array($array) ){
             return;

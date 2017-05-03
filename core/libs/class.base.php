@@ -6,8 +6,6 @@
 
 require_once(CORE_PATH . '/libs/classes/class.session.php');
 require_once(CORE_PATH . '/libs/classes/class.cookie.php');
-require_once(CORE_PATH . '/libs/classes/phpmailer/class.phpmailer.php');
-require_once(CORE_PATH . '/libs/classes/phpmailer/class.smtp.php');
 require_once(CORE_PATH . '/libs/classes/class.sendmail.php');
 require_once(CORE_PATH . '/libs/classes/class.folder.php');
 require_once(CORE_PATH . '/libs/classes/class.string.php');
